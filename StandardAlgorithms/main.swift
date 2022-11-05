@@ -7,5 +7,13 @@
 
 import Foundation
 
+func makeQuestion(_ message: String) -> String {
+    let sentence = "\(message)?"
+    return sentence
+}
 print("Hello, Dylan Guo!")
+
+let question = "How are you today"
+
+print(makeQuestion(question))
 
