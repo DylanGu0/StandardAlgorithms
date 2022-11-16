@@ -17,3 +17,6 @@ let question = "How are you today"
 
 print(makeQuestion(question))
 
+let array = [1,2,3,4,5]
+let left = array[0...3]
+print(left)
