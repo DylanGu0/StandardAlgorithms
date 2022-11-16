@@ -20,4 +20,11 @@ class SortingTest: XCTestCase {
         XCTAssertEqual(sortedArray, expected)
     }
     
+    func testMergeSortWithUnsortedArrayOfIntegersReturnsSortedArray() {
+        let unsortedArray = [3, 1, 10, 15, 4]
+        let sort = Sorting()
+        let expected = [1, 3, 4, 10, 15]
+        let sortedArray = sort.mergeSort(data: unsortedArray())
+        XCTAssertEqual(sortedArray, expected)
+    }
 }
