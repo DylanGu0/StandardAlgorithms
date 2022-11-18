@@ -27,4 +27,24 @@ class SortingTest: XCTestCase {
         let sortedArray = sort.mergeSort(data: unsortedArray)
         XCTAssertEqual(sortedArray, expected)
     }
+    
+    func testLinearSearchWithArrayOfIntegersReturnsBoolean() {
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let searchItem = 4
+        let sort = Sorting()
+        let expected = true
+        let returnedValue = sort.linearSearch(data: array, searchItem: searchItem)
+        XCTAssertEqual(returnedValue, returnedValue)
+    }
+    
+    func testLinearSearchWithArrayOfIntegersReturnsBooleanIntegerTuple() {
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let searchItem = 4
+        let sort = Sorting()
+        let expected = (true, 3)
+        let returnedValue = sort.binarySearch(data: array, searchItem: searchItem)
+        XCTAssertEqual(returnedValue, expected)
+    }
+    
+    
 }
