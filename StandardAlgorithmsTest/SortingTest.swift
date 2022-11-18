@@ -28,23 +28,38 @@ class SortingTest: XCTestCase {
         XCTAssertEqual(sortedArray, expected)
     }
     
+    func testInsertionSortWithUnsortedArrayOfIntegersReturnsSortedArray() {
+        let unsortedArray = [3, 1, 10, 15, 4]
+        let sort = Sorting()
+        let expected = [1, 3, 4, 10, 15]
+        let sortedArray = sort.insertionSort(data: unsortedArray)
+        XCTAssertEqual(sortedArray, expected)
+    }
+    
+    func testQuickSortWithUnsortedArrayOfIntegersReturnsSortedArray() {
+        let unsortedArray = [3, 1, 10, 15, 4]
+        let sort = Sorting()
+        let expected = [1, 3, 4, 10, 15]
+        let sortedArray = sort.quickSort(data: unsortedArray)
+        XCTAssertEqual(sortedArray, expected)
+    }
+    
     func testLinearSearchWithArrayOfIntegersReturnsBoolean() {
         let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         let searchItem = 4
-        let sort = Sorting()
+        let search = Searching()
         let expected = true
-        let returnedValue = sort.linearSearch(data: array, searchItem: searchItem)
-        XCTAssertEqual(returnedValue, returnedValue)
-    }
-    
-    func testLinearSearchWithArrayOfIntegersReturnsBooleanIntegerTuple() {
-        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        let searchItem = 4
-        let sort = Sorting()
-        let expected = (true, 3)
-        let returnedValue = sort.binarySearch(data: array, searchItem: searchItem)
+        let returnedValue = search.linearSearch(data: array, searchItem: searchItem)
         XCTAssertEqual(returnedValue, expected)
     }
     
-    
+    func testBinarySearchWithArrayOfIntegersReturnsBooleanIntegerTuple() {
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let searchItem = 4
+        let search = Searching()
+        let expected = [3: true]
+        let returnedValue = search.binarySearch(array, searchItem)
+        XCTAssertEqual(returnedValue, expected)
+        XCTAssertEqual(returnedValue, expected)
+    }
 }

@@ -11,7 +11,7 @@ class Sorting {
     func bubbleSort(data: [Int]) -> [Int] {
         var dataCopy = data
         let length = dataCopy.count - 2
-        for j in 0...length {
+        for _ in 0...length {
             for i in 0...length {
                 if dataCopy[i] > dataCopy[i+1] {
                     let temp = dataCopy[i+1]
@@ -61,18 +61,36 @@ class Sorting {
             }
         }
         return dataCopy
-        }
-    
-    func linearSearch(data: [Int], searchItem: Int) -> Bool {
-      for value in data {
-        if value == searchItem {
-          return true
-        }
-      }
-      return false
     }
     
-    func binarySearch <T:Comparable> (_ data: Array <T>, _ searchItem: T) -> (Bool, Int) {
+    func insertionSort(data: [Int]) -> [Int] {
+      var dataCopy = data
+      for i in 1..<dataCopy.count {
+        var j = i
+        let temp = dataCopy[j]
+        while j > 0 && temp < dataCopy[j - 1] {
+          dataCopy[j] = dataCopy[j - 1]
+          j -= 1
+        }
+        dataCopy[j] = temp
+      }
+      return dataCopy
+    }
+    
+    func quickSort <T: Comparable> (data: [T]) -> [T] {
+        let dataCopy = data
+        guard dataCopy.count > 1 else { return dataCopy }
+        let pivot = dataCopy[dataCopy.count/2]
+        let less = dataCopy.filter { $0 < pivot }
+        let equal = dataCopy.filter { $0 == pivot }
+        let greater = dataCopy.filter { $0 > pivot }
+        return quickSort(data: less) + equal + quickSort(data: greater)
+    }
+}
+
+class Searching {
+    
+    func binarySearch <T:Comparable> (_ data: Array <T>, _ searchItem: T) -> [Int: Bool] {
         var lowerIndex = 0
         var upperIndex = data.count - 1
         var index = Int()
@@ -90,11 +108,20 @@ class Sorting {
             }
           }
           if index == -1 {
-            return (false, index)
+              return [index: true]
           } else if index == currentIndex {
-            return (true, index)
+              return [index: true]
           }
         }
+    }
+    
+    func linearSearch(data: [Int], searchItem: Int) -> Bool {
+      for value in data {
+        if value == searchItem {
+          return true
+        }
+      }
+      return false
     }
 }
     
