@@ -57,9 +57,9 @@ class SortingTest: XCTestCase {
         let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         let searchItem = 4
         let search = Searching()
-        let expected = [3: true]
+        let expected = (3, true)
         let returnedValue = search.binarySearch(array, searchItem)
-        XCTAssertEqual(returnedValue, expected)
-        XCTAssertEqual(returnedValue, expected)
+        XCTAssertEqual(returnedValue.0, expected.0)
+        XCTAssertEqual(returnedValue.1, expected.1)
     }
 }

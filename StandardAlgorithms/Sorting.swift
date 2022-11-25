@@ -90,7 +90,7 @@ class Sorting {
 
 class Searching {
     
-    func binarySearch <T:Comparable> (_ data: Array <T>, _ searchItem: T) -> [Int: Bool] {
+    func binarySearch <T:Comparable> (_ data: Array <T>, _ searchItem: T) -> (Int, Bool) {
         var lowerIndex = 0
         var upperIndex = data.count - 1
         var index = Int()
@@ -108,9 +108,9 @@ class Searching {
             }
           }
           if index == -1 {
-              return [index: true]
+              return (index, false)
           } else if index == currentIndex {
-              return [index: true]
+              return (index, true)
           }
         }
     }
